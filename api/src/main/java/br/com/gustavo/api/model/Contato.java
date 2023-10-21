@@ -2,6 +2,8 @@ package br.com.gustavo.api.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,5 +29,6 @@ public class Contato implements Serializable
 
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
+    @JsonBackReference
     private Pessoa pessoa;
 }

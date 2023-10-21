@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -30,6 +31,6 @@ public class Pessoa implements Serializable
     private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("pessoa")
+    @JsonManagedReference
     private List<Contato> contatos;
 }
