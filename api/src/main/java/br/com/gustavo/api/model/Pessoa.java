@@ -1,7 +1,10 @@
 package br.com.gustavo.api.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -17,14 +20,16 @@ import lombok.Setter;
 @Table(name = "pessoas")
 @Getter
 @Setter
-public class Pessoa {
+public class Pessoa implements Serializable 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
+    private Long id;
+    private String nome;
     private String cpf;
     private LocalDate dataNascimento;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("pessoa")
     private List<Contato> contatos;
 }

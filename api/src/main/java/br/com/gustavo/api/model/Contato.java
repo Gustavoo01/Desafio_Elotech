@@ -1,5 +1,7 @@
 package br.com.gustavo.api.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,10 +16,11 @@ import lombok.Setter;
 @Table(name = "contatos")
 @Getter
 @Setter
-public class Contato {
+public class Contato implements Serializable 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String nome;
     private String telefone;
     private String email;
