@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.gustavo.api.model.Contato;
 import br.com.gustavo.api.model.Pessoa;
 import br.com.gustavo.api.repositories.PessoaRepository;
+import br.com.gustavo.api.services.PessoaService;
 
 @RestController
 @RequestMapping("/pessoas")
@@ -25,17 +25,13 @@ public class PessoaController {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    @Autowired
+    private PessoaService pessoaService;
+
     @PostMapping
     public ResponseEntity<Pessoa> criarPessoa(@RequestBody Pessoa pessoa) 
     {
-        if (pessoa.getContatos() != null) {
-            for (Contato contato : pessoa.getContatos()) {
-                contato.setPessoa(pessoa);
-            }
-        }
-
-        Pessoa novaPessoa = pessoaRepository.save(pessoa);
-        return new ResponseEntity<>(novaPessoa, HttpStatus.CREATED);
+        return (ResponseEntity<Pessoa>) pessoaService.cadastrar(pessoa);
     }
 
     @GetMapping
