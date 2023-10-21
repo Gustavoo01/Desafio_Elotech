@@ -31,6 +31,6 @@ public class Pessoa implements Serializable
     private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonIgnoreProperties("pessoa")
     private List<Contato> contatos;
 }
