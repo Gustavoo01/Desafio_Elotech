@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@600&display=swap');
+
 img {
     width: 250px;
     margin-bottom: 30px;
@@ -31,9 +33,19 @@ td {
 }
 
 .card {
-   background: rgba(255, 245, 111, 0.2);
+   background: rgba(255, 255, 255, 0.2);
    border-radius: 10px; 
    border: 0;
+}
+
+.logo {
+    width: 124px;
+    margin: auto;
+}
+
+.titulo {
+    margin: auto;
+    font-family: 'Sometype Mono', monospace;
 }
 
 table {
