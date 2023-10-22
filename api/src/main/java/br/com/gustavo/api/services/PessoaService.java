@@ -58,6 +58,15 @@ public class PessoaService
         return new ResponseEntity<>(novaPessoa, HttpStatus.CREATED);
     }
 
+    public ResponseEntity<?> editarPessoa(Pessoa pessoa) 
+    {
+        if (pessoa.getContatos().isEmpty()) {
+            return new ResponseEntity<>("A pessoa deve possuir ao menos um contato.", HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
+    }
+
     public Pessoa salvar(Pessoa pessoa) 
     {
         return pessoaRepository.save(pessoa);

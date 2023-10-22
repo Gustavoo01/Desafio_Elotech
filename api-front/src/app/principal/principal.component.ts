@@ -23,9 +23,17 @@ export class PrincipalComponent {
     this.servico.selecionar().subscribe(retorno => this.pessoas = retorno);
   }
 
-  adicionarContato() {
+  /*adicionarContato() {
     this.pessoa.contatos.push(this.contato);
     this.contato = new Contato();
+  }*/
+
+  adicionarContato() {
+    this.pessoa.contatos.push({ id: 2, nome: '', telefone: '', email: '', pessoa_id: 2});
+  }
+
+  removerContato(index: number) {
+    this.pessoa.contatos.splice(index, 1);
   }
 
   cadastrar():void{
@@ -36,12 +44,8 @@ export class PrincipalComponent {
       this.pessoa = new Pessoa();
       alert('Pessoa Cadastrada com sucesso!');
     },
-    error => {
-      if (error.error && error.error.message) {
-        alert('Erro ao cadastrar: ' + error.error.message);
-      } else {
-        alert('Erro desconhecido ao cadastrar: ' + error.message);
-      }
+    (error: HttpErrorResponse) => {
+      alert(error.error);
     })
   }
 
@@ -68,15 +72,11 @@ export class PrincipalComponent {
       this.btnCadastro = true;
       this.tabela = true;
 
-      alert('Cliente alterado com sucesso!');
+      alert('Pessoa alterada com sucesso!');
     },
-    error => {
-      if (error.error && error.error.message) {
-        alert('Erro ao cadastrar: ' + error.error.message);
-      } else {
-        alert('Erro desconhecido ao cadastrar: ' + error.message);
-      }
-    });
+    (error: HttpErrorResponse) => {
+      alert(error.error);
+    })
   }
 
   editarPessoa() {
@@ -105,7 +105,7 @@ export class PrincipalComponent {
       this.btnCadastro = true;
       this.tabela = true;
 
-      alert('Cliente removido com sucesso!');
+      alert('Pessoa removida com sucesso!');
     })
   }
 
