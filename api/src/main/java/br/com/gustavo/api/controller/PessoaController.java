@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,15 +16,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.gustavo.api.model.Contato;
 import br.com.gustavo.api.model.Pessoa;
+import br.com.gustavo.api.repositories.ContatoRepository;
 import br.com.gustavo.api.repositories.PessoaRepository;
 import br.com.gustavo.api.services.PessoaService;
 
 @RestController
 @RequestMapping("/pessoas")
+@CrossOrigin(origins = "*")
 public class PessoaController {
     @Autowired
     private PessoaRepository pessoaRepository;
+
+    @Autowired
+    private ContatoRepository contatoRepository;
 
     @Autowired
     private PessoaService pessoaService;
@@ -61,6 +68,7 @@ public class PessoaController {
             pessoa.setNome(pessoaAtualizada.getNome());
             pessoa.setCpf(pessoaAtualizada.getCpf());
             pessoa.setDataNascimento(pessoaAtualizada.getDataNascimento());
+            pessoa.setContatos(pessoaAtualizada.getContatos());
             Pessoa dadosPessoa = pessoaRepository.save(pessoa);
             return new ResponseEntity<>(dadosPessoa, HttpStatus.OK);
         } else {
@@ -72,6 +80,18 @@ public class PessoaController {
     public ResponseEntity<?> excluirPessoa(@PathVariable Long id) 
     {
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
+        if (pessoa.isPresent()) {
+            pessoaRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/contato/{id}")
+    public ResponseEntity<?> excluirContato(@PathVariable Long id) 
+    {
+        Optional<Contato> pessoa = contatoRepository.findById(id);
         if (pessoa.isPresent()) {
             pessoaRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

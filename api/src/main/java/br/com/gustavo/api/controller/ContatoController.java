@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import br.com.gustavo.api.repositories.ContatoRepository;
 
 @RestController
 @RequestMapping("/contatos")
+@CrossOrigin(origins = "*")
 public class ContatoController {
     @Autowired
     private ContatoRepository contatoRepository;
@@ -57,12 +59,12 @@ public class ContatoController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> excluirContato(@PathVariable Long id) 
+    @DeleteMapping("/{idContato}")
+    public ResponseEntity<?> excluirContato(@PathVariable Long idContato) 
     {
-        Optional<Contato> contato = contatoRepository.findById(id);
+        Optional<Contato> contato = contatoRepository.findById(idContato);
         if (contato.isPresent()) {
-            contatoRepository.deleteById(id);
+            contatoRepository.deleteById(idContato);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

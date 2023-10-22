@@ -32,7 +32,7 @@ public class PessoaService
             return new ResponseEntity<>("Todos os campos obrigatórios devem ser preenchidos.", HttpStatus.BAD_REQUEST);
         }
     
-        if (!isValidCpf(pessoa.getCpf())) {
+        if (!verificaCpf(pessoa.getCpf())) {
             return new ResponseEntity<>("CPF inválido.", HttpStatus.BAD_REQUEST);
         }
     
@@ -49,7 +49,7 @@ public class PessoaService
                 return new ResponseEntity<>("Todos os campos de contato são obrigatórios.", HttpStatus.BAD_REQUEST);
             }
     
-            if (!isValidEmail(contato.getEmail())) {
+            if (!verificaEmail(contato.getEmail())) {
                 return new ResponseEntity<>("E-mail inválido.", HttpStatus.BAD_REQUEST);
             }
         }
@@ -73,15 +73,15 @@ public class PessoaService
         return pessoaRepository.findAll();
     }
 
-    public static boolean isValidEmail(String email) {
-        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+    public static boolean verificaEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@([A-Za-z0-9.-]+)\\.([A-Za-z]{2,4})$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         
         return matcher.matches();
     }
 
-    public static boolean isValidCpf(String cpf) {
+    public static boolean verificaCpf(String cpf) {
         cpf = cpf.replaceAll("[^0-9]", "");
 
         if (cpf.length() != 11) {
