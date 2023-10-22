@@ -28,24 +28,6 @@ export class PrincipalComponent {
     this.contato = new Contato();
   }
 
-  /*removerContato(posicao:number) {
-    this.servico.removerContato(this.pessoa)
-    .subscribe(retorno => {
-      let posicao = this.pessoas.findIndex(obj => {
-        return obj.id == retorno.id;
-      });
-
-      this.pessoas[posicao] = retorno;
-
-      this.pessoa = new Pessoa();
-
-      this.btnCadastro = true;
-      this.tabela = true;
-
-      alert('Cliente alterado com sucesso!');
-    })
-  }*/
-
   cadastrar():void{
     this.pessoa.cpf = this.formatarCPF(this.pessoa.cpf);
     this.servico.cadastrar(this.pessoa)
@@ -76,6 +58,8 @@ export class PrincipalComponent {
       let posicao = this.pessoas.findIndex(obj => {
         return obj.id == retorno.id;
       });
+
+      this.pessoas[posicao].contatos[posicao].pessoa_id = this.pessoa.id;
 
       this.pessoas[posicao] = retorno;
 
