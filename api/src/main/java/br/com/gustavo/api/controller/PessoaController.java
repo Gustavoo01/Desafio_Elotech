@@ -62,18 +62,7 @@ public class PessoaController {
     @PutMapping("/{id}")
     public ResponseEntity<Pessoa> atualizarPessoa(@PathVariable Long id, @RequestBody Pessoa pessoaAtualizada) 
     {
-        Optional<Pessoa> pessoaExistente = pessoaRepository.findById(id);
-        if (pessoaExistente.isPresent()) {
-            Pessoa pessoa = pessoaExistente.get();
-            pessoa.setNome(pessoaAtualizada.getNome());
-            pessoa.setCpf(pessoaAtualizada.getCpf());
-            pessoa.setDataNascimento(pessoaAtualizada.getDataNascimento());
-            pessoa.setContatos(pessoaAtualizada.getContatos());
-            Pessoa dadosPessoa = pessoaRepository.save(pessoa);
-            return new ResponseEntity<>(dadosPessoa, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return (ResponseEntity<Pessoa>) pessoaService.editarPessoa(pessoaAtualizada, id);
     }
 
     @DeleteMapping("/{id}")

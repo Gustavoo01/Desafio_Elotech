@@ -23,13 +23,9 @@ export class PrincipalComponent {
     this.servico.selecionar().subscribe(retorno => this.pessoas = retorno);
   }
 
-  /*adicionarContato() {
-    this.pessoa.contatos.push(this.contato);
-    this.contato = new Contato();
-  }*/
-
   adicionarContato() {
-    this.pessoa.contatos.push({ id: 2, nome: '', telefone: '', email: '', pessoa_id: 2});
+    this.pessoa.contatos.push(this.contato);
+    //this.contato = new Contato();
   }
 
   removerContato(index: number) {
@@ -63,7 +59,7 @@ export class PrincipalComponent {
         return obj.id == retorno.id;
       });
 
-      this.pessoas[posicao].contatos[posicao].pessoa_id = this.pessoa.id;
+      //this.pessoas[posicao].contatos[posicao].pessoa_id = this.pessoa.id;
 
       this.pessoas[posicao] = retorno;
 

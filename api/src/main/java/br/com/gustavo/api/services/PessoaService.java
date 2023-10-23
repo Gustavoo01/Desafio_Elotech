@@ -2,6 +2,7 @@ package br.com.gustavo.api.services;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,13 +59,20 @@ public class PessoaService
         return new ResponseEntity<>(novaPessoa, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<?> editarPessoa(Pessoa pessoa) 
+    public ResponseEntity<?> editarPessoa(Pessoa pessoaAtualizada, Long id) 
     {
-        if (pessoa.getContatos().isEmpty()) {
-            return new ResponseEntity<>("A pessoa deve possuir ao menos um contato.", HttpStatus.BAD_REQUEST);
+        Optional<Pessoa> pessoaExistente = pessoaRepository.findById(id);
+        if (pessoaExistente.isPresent()) {
+            Pessoa pessoa = pessoaExistente.get();
+            pessoa.setNome(pessoaAtualizada.getNome());
+            pessoa.setCpf(pessoaAtualizada.getCpf());
+            pessoa.setDataNascimento(pessoaAtualizada.getDataNascimento());
+            pessoa.setContatos(pessoaAtualizada.getContatos());
+            Pessoa dadosPessoa = pessoaRepository.save(pessoa);
+            return new ResponseEntity<>(dadosPessoa, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
-        return new ResponseEntity<>(pessoa, HttpStatus.CREATED);
     }
 
     public Pessoa salvar(Pessoa pessoa) 
