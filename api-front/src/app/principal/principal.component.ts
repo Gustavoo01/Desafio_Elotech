@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pessoa } from '../model/Pessoa';
 import { PessoaService } from '../services/pessoa.service';
 import { Contato } from '../model/Contato';
@@ -25,13 +25,9 @@ export class PrincipalComponent {
 
   adicionarContato() {
     this.pessoa.contatos.push(this.contato);
-    //this.contato = new Contato();
+    this.contato = new Contato();
   }
-
-  removerContato(index: number) {
-    this.pessoa.contatos.splice(index, 1);
-  }
-
+  
   cadastrar():void{
     this.pessoa.cpf = this.formatarCPF(this.pessoa.cpf);
     this.servico.cadastrar(this.pessoa)
