@@ -126,6 +126,46 @@ public class PessoaServiceTests {
     }
 
     @Test
+    public void testCadastrarPessoaCpfInvalido() {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome("Nome");
+        pessoa.setCpf("12345678910");
+        pessoa.setDataNascimento(LocalDate.parse("1990-01-01"));
+        Contato contato = new Contato();
+        contato.setNome("Contato");
+        contato.setTelefone("123456789");
+        contato.setEmail("email@example.com");
+        pessoa.setContatos(new ArrayList<>(Collections.singletonList(contato)));
+
+        when(pessoaRepository.save(any(Pessoa.class))).thenReturn(pessoa);
+
+        ResponseEntity<?> response = pessoaService.cadastrar(pessoa);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertEquals("CPF inválido.", response.getBody());
+    }
+
+    @Test
+    public void testCadastrarPessoaDataNascimentoPosterior() {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome("Nome");
+        pessoa.setCpf("268.690.520-42");
+        pessoa.setDataNascimento(LocalDate.parse("2050-01-01"));
+        Contato contato = new Contato();
+        contato.setNome("Contato");
+        contato.setTelefone("123456789");
+        contato.setEmail("email@example.com");
+        pessoa.setContatos(new ArrayList<>(Collections.singletonList(contato)));
+
+        when(pessoaRepository.save(any(Pessoa.class))).thenReturn(pessoa);
+
+        ResponseEntity<?> response = pessoaService.cadastrar(pessoa);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertEquals("Data de nascimento não pode ser uma data futura.", response.getBody());
+    }
+
+    @Test
     public void testCadastrarPessoaCampoContatosNulo() {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Pessoa");
