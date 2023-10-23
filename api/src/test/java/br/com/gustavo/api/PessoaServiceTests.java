@@ -142,4 +142,18 @@ public class PessoaServiceTests {
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertEquals("Todos os campos de contato são obrigatórios.", response.getBody());
     }
+
+    @Test
+    public void testCadastrarPessoaSemContato() {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome("Pessoa");
+        pessoa.setCpf("268.690.520-42");
+        pessoa.setDataNascimento(LocalDate.parse("1990-01-01"));
+        pessoa.setContatos(null);
+
+        ResponseEntity<?> response = pessoaService.cadastrar(pessoa);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertEquals("Todos os campos obrigatórios devem ser preenchidos.", response.getBody());
+    }
 }

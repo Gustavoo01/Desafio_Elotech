@@ -27,19 +27,15 @@
             </div>
         </div>
 
-        <!-- <div class="d-flex flex-wrap"> -->
-        <div *ngFor="let contato of pessoa.contatos; let i = index">
-            <app-cadastro-contato [contato]="contato" [i]="i">
-
-
-            </app-cadastro-contato>
-            <button class="btn btn-danger" (click)="removerContato(i)">
-                Remover Contato <i class="fa fa-trash" aria-hidden="true"></i></button>
+        <div class="d-flex flex-wrap">
+            <div *ngFor="let contato of pessoa.contatos; let i = index">
+                <app-cadastro-contato [contato]="contato" [i]="i"></app-cadastro-contato>
+                <button class="btn btn-danger" (click)="removerContato(i)">
+                    Remover Contato <i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
         </div>
         <button class="btn btn-info" (click)="adicionarContato()" style="color: white;">
             Adicionar Contato <i class="fa fa-plus" style="color: white;"></i></button>
-        <!-- </div> -->
-        <br />
 
         <hr>
 
