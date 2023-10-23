@@ -9,7 +9,7 @@ import { Pessoa } from '../model/Pessoa';
 export class PessoaService {
 
   //private url:string = 'http://localhost:8080/pessoas';
-  private url:string = 'https://hurt-flower-production.up.railway.app/pessoas';
+  private url:string = 'https://api-elotech.up.railway.app/pessoas';
 
   constructor(private http:HttpClient) {}
 
