@@ -16,6 +16,7 @@ export class PrincipalComponent {
   pessoas:Pessoa[] = [];
   contato: Contato = new Contato();
   contatos: Contato[] = [];
+  oculto: boolean = false;
 
   constructor(private servico:PessoaService){}
 
@@ -26,6 +27,10 @@ export class PrincipalComponent {
   adicionarContato() {
     this.pessoa.contatos.push(this.contato);
     this.contato = new Contato();
+  }
+
+  removerContato(index: number) {
+    this.pessoa.contatos.splice(index, 1);
   }
   
   cadastrar():void{
@@ -54,8 +59,6 @@ export class PrincipalComponent {
       let posicao = this.pessoas.findIndex(obj => {
         return obj.id == retorno.id;
       });
-
-      //this.pessoas[posicao].contatos[posicao].pessoa_id = this.pessoa.id;
 
       this.pessoas[posicao] = retorno;
 
