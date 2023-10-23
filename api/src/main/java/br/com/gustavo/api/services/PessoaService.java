@@ -46,7 +46,7 @@ public class PessoaService
         }
     
         for (Contato contato : pessoa.getContatos()) {
-            if (contato.getNome() == null || contato.getTelefone() == null || contato.getEmail() == null) {
+            if (contato.getNome().isEmpty() || contato.getTelefone().isEmpty() || contato.getEmail().isEmpty()) {
                 return new ResponseEntity<>("Todos os campos de contato são obrigatórios.", HttpStatus.BAD_REQUEST);
             }
     

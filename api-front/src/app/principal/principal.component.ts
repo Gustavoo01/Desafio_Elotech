@@ -81,7 +81,7 @@ export class PrincipalComponent {
         alert('Cliente alterado!' + response);
       },
       error => {
-        alert(console.log('Erro ao alterar' + error));
+        alert('Erro ao alterar' + error);
       }
     );
   }
