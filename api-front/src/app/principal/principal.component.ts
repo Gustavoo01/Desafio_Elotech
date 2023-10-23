@@ -12,11 +12,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class PrincipalComponent {
   pessoa = new Pessoa();
   btnCadastro:boolean = true;
+  telaCadastro:boolean = false;
   tabela:boolean = true;
   pessoas:Pessoa[] = [];
   contato: Contato = new Contato();
   contatos: Contato[] = [];
-  oculto: boolean = false;
+  //oculto: boolean = false;
 
   constructor(private servico:PessoaService){}
 
@@ -49,6 +50,7 @@ export class PrincipalComponent {
   selecionarPessoa(posicao:number):void
   {
     this.pessoa = this.pessoas[posicao];
+    this.telaCadastro = true;
     this.btnCadastro = false;
     this.tabela = false;
   }
@@ -104,10 +106,16 @@ export class PrincipalComponent {
     })
   }
 
+  botaoCadastro():void{
+    this.telaCadastro = true;
+    this.tabela = false;
+  }
+
   cancelar():void{
     this.pessoa = new Pessoa();
     this.btnCadastro = true;
     this.tabela = true;
+    this.telaCadastro = false;
   }
 
   cancelarContato():void{
