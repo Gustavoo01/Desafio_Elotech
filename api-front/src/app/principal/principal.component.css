@@ -16,8 +16,7 @@ input {
 }
 
 input[type="button"] {
-    margin-top: 15px;
-    margin-right: 10px;
+    margin: 10px;
 }
 
 button {
