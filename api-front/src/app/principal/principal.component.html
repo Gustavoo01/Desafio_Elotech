@@ -5,7 +5,7 @@
     <form action="">
         <img src="assets/pessoa.png" alt="" />
         <div class="page">
-            <div class="field field_v1">
+            <div class="field field_v2">
                 <label for="nome" class="ha-screen-reader">Nome:</label>
                 <input type="text" class="field__input" name="nome" placeholder="Ex. João Silva"
                     [(ngModel)]="pessoa.nome" />
@@ -21,7 +21,7 @@
                     <span class="field__label">CPF</span>
                 </span>
             </div>
-            <div class="field field_v3">
+            <div class="field field_v2">
                 <label for="dataNascimento" class="ha-screen-reader">Data de Nascimento:</label>
                 <input type="date" class="field__input" name="dataNascimento" [(ngModel)]="pessoa.dataNascimento" />
             </div>
@@ -32,7 +32,7 @@
             <div class="d-flex justify-content-center align-items-center" style="margin-top: 5px;">
                 <div class="page card" style="width: 15rem; padding: 10px; margin: 5px;">
                     <h3>Contato #{{ i + 1 }}</h3>
-                    <div class="field field_v1">
+                    <div class="field field_v2">
                         <label for="contatos.nome" class="ha-screen-reader">Nome do Contato:</label>
                         <input type="text" class="field__input" name="contatos.nome" [(ngModel)]="contato.nome"
                             placeholder="Nome do Contato" />
@@ -48,7 +48,7 @@
                             <span class="field__label">Telefone</span>
                         </span>
                     </div>
-                    <div class="field field_v3">
+                    <div class="field field_v2">
                         <label for="cpf" class="ha-screen-reader">Nome do Contato:</label>
                         <input type="text" class="field__input" name="contatos.email" [(ngModel)]="contato.email"
                         placeholder="Email do Contato" />
