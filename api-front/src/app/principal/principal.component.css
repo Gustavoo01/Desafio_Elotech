@@ -11,10 +11,6 @@ form {
     text-align: center;
 }
 
-input {
-    margin-bottom: 10px;
-}
-
 input[type="button"] {
     margin: 10px;
 }
