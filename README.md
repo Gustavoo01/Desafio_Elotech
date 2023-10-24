@@ -54,11 +54,11 @@ Tanto a API quanto o Front foram hospedados para facilitar o acesso.
 }
 ```
 #####	Obs.: 
-		Todos os campos (nome, cpf, dataNascimento, nome do contato, telefone do contato e email do contato), devem ser preenchidos.
-		O campo CPF deve ser preenchido com um CPF válido.
-		O campo dataNascimento não deve conter uma data posterior a atual.
-		O Cliente deve possuir ao menos um contato.
-		O campo email do contato deve ser preenchido com um e-mail válido.
+	Todos os campos (nome, cpf, dataNascimento, nome do contato, telefone do contato e email do contato), devem ser preenchidos.
+	O campo CPF deve ser preenchido com um CPF válido.
+	O campo dataNascimento não deve conter uma data posterior a atual.
+	O Cliente deve possuir ao menos um contato.
+	O campo email do contato deve ser preenchido com um e-mail válido.
 
 #### Atualizar pessoa (PUT)
 	Produção:
