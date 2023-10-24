@@ -8,7 +8,10 @@ import { Pessoa } from '../model/Pessoa';
 })
 export class PessoaService {
 
+  //Localhost
   //private url:string = 'http://localhost:8080/pessoas';
+
+  //Produção
   private url:string = 'https://api-elotech.up.railway.app/pessoas';
 
   constructor(private http:HttpClient) {}

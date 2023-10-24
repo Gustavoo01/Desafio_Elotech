@@ -6,7 +6,6 @@
 <img src="/assets/front.gif">
 
 Projeto criado para o desafio técnico do processo seletivo da Elotech.
-<br>
 O projeto consiste em uma API Rest para o cadastro de pessoa + contato.
 <br>
 Também foi implementado um front em Angular para consumir a API.
