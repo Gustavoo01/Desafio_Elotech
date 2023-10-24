@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.com.gustavo.api.model.Contato;
 
-public interface ContatoRepository extends CrudRepository<Contato, Long> {
+public interface ContatoRepository extends CrudRepository<Contato, Long>
+{
     List<Contato> findAll();
  }

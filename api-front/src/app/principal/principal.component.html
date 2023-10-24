@@ -4,7 +4,7 @@
 
 <div class="card_form" *ngIf="telaCadastro">
     <form action="">
-        <img src="assets/pessoa.png" alt="" style="width: 250px; margin-bottom: 20px;"/>
+        <img src="assets/pessoa.png" alt="" style="width: 250px; margin-bottom: 20px;" />
         <div class="page">
             <div class="field field_v2">
                 <label for="nome" class="ha-screen-reader">Nome:</label>
@@ -45,8 +45,10 @@
 
         <input type="button" value="Cancelar" class="btn btn-secondary" (click)="cancelar()" />
         <input type="button" value="Cadastrar" *ngIf="btnCadastro" class="btn btn-primary" (click)="cadastrar()" />
-        <input type="button" value="Alterar" *ngIf="telaCadastro && !btnCadastro" class="btn btn-warning" (click)="editar()" />
-        <input type="button" value="Remover" *ngIf="telaCadastro && !btnCadastro" class="btn btn-danger" (click)="remover()" />
+        <input type="button" value="Alterar" *ngIf="telaCadastro && !btnCadastro" class="btn btn-warning"
+            (click)="editar()" />
+        <input type="button" value="Remover" *ngIf="telaCadastro && !btnCadastro" class="btn btn-danger"
+            (click)="remover()" />
     </form>
 </div>
 

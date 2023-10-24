@@ -17,7 +17,6 @@ export class PrincipalComponent {
   pessoas:Pessoa[] = [];
   contato: Contato = new Contato();
   contatos: Contato[] = [];
-  //oculto: boolean = false;
 
   constructor(private servico:PessoaService){}
 

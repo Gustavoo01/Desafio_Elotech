@@ -28,7 +28,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @SpringBootTest
-public class PessoaServiceTests {
+public class PessoaServiceTests
+{
     @InjectMocks
     private PessoaService pessoaService;
 
@@ -40,7 +41,7 @@ public class PessoaServiceTests {
         MockitoAnnotations.initMocks(this);
     }
     @Test
-    public void testEmailValido() 
+    public void testEmailValido()
     {
         assertTrue(PessoaService.verificaEmail("email@email.com"));        
         assertTrue(PessoaService.verificaEmail("email123@email.com.br"));
@@ -48,7 +49,7 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testEmailInvalido() 
+    public void testEmailInvalido()
     {
         assertFalse(PessoaService.verificaEmail("email"));
         assertFalse(PessoaService.verificaEmail("email@.com")); 
@@ -58,7 +59,8 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testEditarPessoaExistente() {
+    public void testEditarPessoaExistente()
+    {
         Long id = 1L;
 
         Pessoa pessoaExistente = new Pessoa();
@@ -80,7 +82,8 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testEditarPessoaNaoExistente() {
+    public void testEditarPessoaNaoExistente()
+    {
         Long id = 1L;
 
         when(pessoaRepository.findById(id)).thenReturn(Optional.empty());
@@ -92,7 +95,8 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testCadastrarPessoaValida() {
+    public void testCadastrarPessoaValida()
+    {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Nome");
         pessoa.setCpf("268.690.520-42");
@@ -112,7 +116,8 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testCadastrarPessoaCamposObrigatoriosNulos() {
+    public void testCadastrarPessoaCamposObrigatoriosNulos()
+    {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(null);
         pessoa.setCpf(null);
@@ -126,7 +131,8 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testCadastrarPessoaCpfInvalido() {
+    public void testCadastrarPessoaCpfInvalido()
+    {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Nome");
         pessoa.setCpf("12345678910");
@@ -146,7 +152,8 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testCadastrarPessoaDataNascimentoPosterior() {
+    public void testCadastrarPessoaDataNascimentoPosterior()
+    {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Nome");
         pessoa.setCpf("268.690.520-42");
@@ -166,7 +173,8 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testCadastrarPessoaCampoContatosNulo() {
+    public void testCadastrarPessoaCampoContatosNulo()
+    {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Pessoa");
         pessoa.setCpf("268.690.520-42");
@@ -184,7 +192,8 @@ public class PessoaServiceTests {
     }
 
     @Test
-    public void testCadastrarPessoaSemContato() {
+    public void testCadastrarPessoaSemContato()
+    {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Pessoa");
         pessoa.setCpf("268.690.520-42");
