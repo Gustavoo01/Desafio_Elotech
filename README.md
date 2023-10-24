@@ -1,5 +1,9 @@
 # Desafio técnico Elotech / API Rest utilizando Spring Boot e Java 
 
+## Preview:
+
+<img width="470" src="/assets/front.gif">
+
 Projeto criado para o desafio técnico do processo seletivo da Elotech.
 O projeto consiste em uma API Rest para o cadastro de pessoa + contato.
 Também foi implementado um front em Angular para consumir a API.
