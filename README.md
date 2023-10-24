@@ -13,7 +13,7 @@ Tanto a API quanto o Front foram hospedados para facilitar o acesso.
 ## Link para front: https://gustavoo01.github.io/front-pessoas/
 ## Link para API: https://api-elotech.up.railway.app/
 
-### Como utilizar os endpoints:
+### Como utilizar os endpoints de Pessoa:
 
 #### Buscar uma única pessoa (GET):
 	Produção:

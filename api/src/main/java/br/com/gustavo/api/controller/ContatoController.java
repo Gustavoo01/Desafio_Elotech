@@ -42,11 +42,7 @@ public class ContatoController {
     public ResponseEntity<Contato> buscarContatoPorId(@PathVariable Long id) 
     {
         Optional<Contato> contato = contatoRepository.findById(id);
-        if (contato.isPresent()) {
-            return new ResponseEntity<>(contato.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return contato.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PutMapping("/{id}")

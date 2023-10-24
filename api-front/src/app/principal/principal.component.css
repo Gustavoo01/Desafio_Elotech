@@ -282,7 +282,6 @@ body {
 .float {
 
   background: #046b1b;
-  background: linear-gradient(top, #555, #333);
   border: none;
   border-top: 3px solid rgb(255, 255, 255);
   border-radius: 0 0 0.2em 0.2em;
