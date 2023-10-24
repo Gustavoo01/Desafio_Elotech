@@ -16,6 +16,7 @@ Tanto a API quanto o Front foram hospedados para facilitar o acesso.
 ### Como utilizar os endpoints de Pessoa:
 
 #### Buscar uma única pessoa (GET):
+###### (Obs.: Altere "id_da_pessoa_que_deseja_buscar" pelo ID da pessoa, exemplo "1")
 	Produção:
 		https://api-elotech.up.railway.app/pessoas/id_da_pessoa_que_deseja_buscar
 
@@ -61,6 +62,7 @@ Tanto a API quanto o Front foram hospedados para facilitar o acesso.
 	O campo email do contato deve ser preenchido com um e-mail válido.
 
 #### Atualizar pessoa (PUT)
+###### (Obs.: Altere "id_da_pessoa_que_deseja_atualizar" pelo ID da pessoa, exemplo "1")
 	Produção:
 		https://api-elotech.up.railway.app/pessoas/id_da_pessoa_que_deseja_atualizar
 
@@ -84,8 +86,9 @@ Tanto a API quanto o Front foram hospedados para facilitar o acesso.
 }
 ```
 #### Remover pessoa (DELETE)
+###### (Obs.: Altere "id_da_pessoa_que_deseja_remover" pelo ID da pessoa, exemplo "1")
 	Produção:
-		https://api-elotech.up.railway.app/pessoas/id_da_pessoa_que_remover
+		https://api-elotech.up.railway.app/pessoas/id_da_pessoa_que_deseja_remover
 
 	Homologação:
 		http://localhost:8080/pessoas/id_da_pessoa_que_deseja_remover
