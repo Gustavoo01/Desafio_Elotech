@@ -1,5 +1,6 @@
 package br.com.gustavo.api.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,11 @@ public class ContatoController {
         return new ResponseEntity<>(novoContato, HttpStatus.CREATED);
     }
 
+    @GetMapping
+    public ResponseEntity<List<Contato>> findAllContatos(){
+        return new ResponseEntity<>(contatoRepository.findAll(), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Contato> buscarContatoPorId(@PathVariable Long id) 
     {
@@ -52,6 +58,7 @@ public class ContatoController {
             contato.setNome(contatoAtualizado.getNome());
             contato.setTelefone(contatoAtualizado.getTelefone());
             contato.setEmail(contatoAtualizado.getEmail());
+            contato.setPessoa(contatoAtualizado.getPessoa());
             Contato dadosContato = contatoRepository.save(contato);
             return new ResponseEntity<>(dadosContato, HttpStatus.OK);
         } else {
