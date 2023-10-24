@@ -6,7 +6,7 @@ Também foi implementado um front em Angular para consumir a API.
 Tanto a API quanto o Front foram hospedados para facilitar o acesso.
 
 ## Link para front: https://gustavoo01.github.io/front-pessoas/
-## Link para API pública: https://api-elotech.up.railway.app/
+## Link para API: https://api-elotech.up.railway.app/
 
 ### Como utilizar os endpoints:
 
@@ -34,19 +34,20 @@ Tanto a API quanto o Front foram hospedados para facilitar o acesso.
 
 ##### Será necessário enviar um json com a seguinte estrutura:
 
-	{
-	    "nome": "John",
-	    "cpf": "664.819.980-69",
-	    "dataNascimento": "1990-10-11",
-	    "contatos": [
-	        {
-	            "nome": "telefone",
-	            "telefone": "99887766",
-	            "email": "teste@email.com"
-	        }
-	    ]
-	}
-
+```
+{
+    "nome": "John",
+    "cpf": "664.819.980-69",
+    "dataNascimento": "1990-10-11",
+    "contatos": [
+        {
+            "nome": "telefone",
+            "telefone": "99887766",
+            "email": "teste@email.com"
+        }
+    ]
+}
+```
 #####	Obs.: 
 		Todos os campos (nome, cpf, dataNascimento, nome do contato, telefone do contato e email do contato), devem ser preenchidos.
 		O campo CPF deve ser preenchido com um CPF válido.
@@ -63,19 +64,20 @@ Tanto a API quanto o Front foram hospedados para facilitar o acesso.
 
 ##### Será necessário enviar um json com os campos e dados que deseja alterar, segue exemplo:
 
-	{
-	    "nome": "John teste update",
-	    "cpf": "664.819.980-69",
-	    "dataNascimento": "1980-10-11",
-	    "contatos": [
-	        {
-	            "nome": "telefone",
-	            "telefone": "99887766",
-	            "email": "teste@email.com"
-	        }
-	    ]
-	}
-
+```
+{
+    "nome": "John teste update",
+    "cpf": "664.819.980-69",
+    "dataNascimento": "1980-10-11",
+    "contatos": [
+        {
+            "nome": "telefone",
+            "telefone": "99887766",
+            "email": "teste@email.com"
+        }
+    ]
+}
+```
 #### Remover pessoa (DELETE)
 	Produção:
 		https://api-elotech.up.railway.app/pessoas/id_da_pessoa_que_remover
