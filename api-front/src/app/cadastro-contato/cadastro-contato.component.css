@@ -35,10 +35,8 @@
   --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
   --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
   --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);
-  --uiFieldBorderColorActive: var(
-    --fieldBorderColorActive,
-    rgba(22, 22, 22, 1)
-  );
+  --uiFieldBorderColorActive: var(--fieldBorderColorActive,
+      rgba(22, 22, 22, 1));
 
   display: var(--fieldDisplay, inline-flex);
   position: relative;
@@ -49,10 +47,8 @@
   box-sizing: border-box;
   width: var(--fieldWidth, 100%);
   height: var(--fieldHeight, 3rem);
-  padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight)
-    var(--fieldPaddingBottom, 0.5rem) var(--uiFieldPaddingLeft);
-  border-bottom: var(--uiFieldBorderWidth) solid
-    var(--fieldBorderColor, rgba(0, 0, 0, 0.25));
+  padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight) var(--fieldPaddingBottom, 0.5rem) var(--uiFieldPaddingLeft);
+  border-bottom: var(--uiFieldBorderWidth) solid var(--fieldBorderColor, rgba(0, 0, 0, 0.25));
 }
 
 .field__input:focus {
@@ -103,7 +99,7 @@
   left: 0;
 }
 
-.field__input:focus ~ .field__label-wrap::after {
+.field__input:focus~.field__label-wrap::after {
   opacity: 1;
 }
 
@@ -119,8 +115,8 @@
     opacity 0.2s ease-out, font-size 0.2s ease-out;
 }
 
-.field__input:focus ~ .field__label-wrap .field__label,
-.field__input:not(:placeholder-shown) ~ .field__label-wrap .field__label {
+.field__input:focus~.field__label-wrap .field__label,
+.field__input:not(:placeholder-shown)~.field__label-wrap .field__label {
   --fieldHintFontSize: var(--fieldHintFontSizeFocused, 0.75rem);
 
   top: var(--fieldHintTopHover, 0.25rem);
@@ -141,7 +137,7 @@
   transition: transform 0.285s ease-out 0.2s, opacity 0.2s ease-out 0.2s;
 }
 
-.field_v2 .field__input:focus ~ .field__label-wrap::after {
+.field_v2 .field__input:focus~.field__label-wrap::after {
   transform: translate3d(0, 0, 0);
   transition-delay: 0;
 }
@@ -151,7 +147,7 @@
   transition: height 0.2s ease-out, opacity 0.2s ease-out;
 }
 
-.field_v3 .field__input:focus ~ .field__label-wrap::after {
+.field_v3 .field__input:focus~.field__label-wrap::after {
   height: 100%;
 }
 
@@ -186,5 +182,3 @@ body {
   border-radius: 10px;
   border: 0;
 }
-
-

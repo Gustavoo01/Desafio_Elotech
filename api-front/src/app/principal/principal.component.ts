@@ -74,6 +74,7 @@ export class PrincipalComponent {
     (error: HttpErrorResponse) => {
       alert(error.error);
     })
+    this.telaCadastro = false;
   }
 
   editarPessoa() {
@@ -104,6 +105,7 @@ export class PrincipalComponent {
 
       alert('Pessoa removida com sucesso!');
     })
+    this.telaCadastro = false;
   }
 
   botaoCadastro():void{
